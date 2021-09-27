@@ -52,34 +52,37 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
   const classes = useStyles({ open })
   return ( 
-    <AppBar position="static">
-        <Toolbar className={ classes.toolbar }>
-            <Typography variant="h4" className={classes.logoLg}>
-            at-ease
-            </Typography>
-            <Typography variant="h5" className={classes.logoSm}>
-            at-ease
-            </Typography>
+    // <AppBar position="static">
+    //     <Toolbar className={ classes.toolbar }>
+    //         <Typography variant="h4" className={classes.logoLg}>
+    //         at-ease
+    //         </Typography>
+    //         <Typography variant="h5" className={classes.logoSm}>
+    //         at-ease
+    //         </Typography>
             
-            <div className={classes.search}>
-            <Search />
-            <InputBase placeholder="Search..." className={classes.input}/>
-            <Cancel className={classes.cancel} onClick={() => setOpen(false)}/>
-            </div>
+    //         <div className={classes.search}>
+    //         <Search />
+    //         <InputBase placeholder="Search..." className={classes.input}/>
+    //         <Cancel className={classes.cancel} onClick={() => setOpen(false)}/>
+    //         </div>
             
-            <div className={classes.icons}>
-                <Search className={classes.searchButton} onClick={() => setOpen(true)}/>
-                <Badge badgeContent={0} color="secondary" className={classes.badge}>
-                    <Mail />
-                </Badge> 
-                <Badge badgeContent={0} color="secondary"className={classes.badge}>
-                    <Notifications />
-                </Badge> 
-                <Avatar alt="Welcome Smile" src="https://m.media-amazon.com/images/I/41CyuoxrPvL._AC_.jpg">
-                </Avatar>
-            </div>
-        </Toolbar>
-    </AppBar>
+    //         <div className={classes.icons}>
+    //             <Search className={classes.searchButton} onClick={() => setOpen(true)}/>
+    //             <Badge badgeContent={0} color="secondary" className={classes.badge}>
+    //                 <Mail />
+    //             </Badge> 
+    //             <Badge badgeContent={0} color="secondary"className={classes.badge}>
+    //                 <Notifications />
+    //             </Badge> 
+    //             <Avatar alt="Welcome Smile" src="https://m.media-amazon.com/images/I/41CyuoxrPvL._AC_.jpg">
+    //             </Avatar>
+    //         </div>
+    //     </Toolbar>
+    // </AppBar>
+
+    <div>NAVBAR</div>
+
   );
 }
 

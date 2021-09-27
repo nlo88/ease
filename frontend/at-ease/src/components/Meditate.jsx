@@ -14,7 +14,7 @@ function Meditate ( link ) {
     
         return (
         <Container className={classes.container}>
-        <h1> Ooooommmmmmmm </h1>
+        <h1> Ohmmmmmmmm </h1>
         </Container>
         )
         
