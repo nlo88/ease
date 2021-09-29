@@ -2,13 +2,8 @@ import {
     Button,
     Container,
     Fab,
-    FormControlLabel,
-    FormLabel,
     makeStyles,
-    MenuItem,
     Modal,
-    Radio,
-    RadioGroup,
     Snackbar,
     TextField,
     Tooltip,
@@ -85,46 +80,15 @@ import {
                   id="outlined-multiline-static"
                   multiline
                   rows={4}
-                  defaultValue="Tell your story..."
+                  defaultValue="Share your story ..."
                   variant="outlined"
                   label="Description"
-                  size="small"
+                  size="large"
                   style={{ width: "100%" }}
                 />
               </div>
-              <div className={classes.item}>
-                <TextField select label="Visibility" value="Public">
-                  <MenuItem value="Public">Public</MenuItem>
-                  <MenuItem value="Private">Private</MenuItem>
-                  <MenuItem value="Unlisted">Unlisted</MenuItem>
-                </TextField>
-              </div>
-              <div className={classes.item}>
-                <FormLabel component="legend">Who can comment?</FormLabel>
-                <RadioGroup>
-                  <FormControlLabel
-                    value="Everybody"
-                    control={<Radio size="small" />}
-                    label="Everybody"
-                  />
-                  <FormControlLabel
-                    value="My Friends"
-                    control={<Radio size="small" />}
-                    label="My Friends"
-                  />
-                  <FormControlLabel
-                    value="Nobody"
-                    control={<Radio size="small" />}
-                    label="Nobody"
-                  />
-                  <FormControlLabel
-                    value="Custom"
-                    disabled
-                    control={<Radio size="small" />}
-                    label="Custom (Premium)"
-                  />
-                </RadioGroup>
-              </div>
+              
+              
               <div className={classes.item}>
                 <Button
                   variant="outlined"

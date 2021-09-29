@@ -1,16 +1,15 @@
-
 import { Grid, makeStyles } from '@material-ui/core';
-import Feed from './components/Feed';
 import LeftBar from './components/LeftBar';
-import RightBar from './components/Drawer';
 import Navbar from './components/NavBars';
-import Add from './components/Add';
 import Meditate from './components/Meditate';
 import MotivationalQuotes from './components/MotivationalQuotes';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Food from './components/Food';
 import BreathingExercise from './components/BreathingExcercise';
 import Home from './components/Home'
+import Post from './components/Post'
+import AddFood from './components/AddFood';
+import AddQuotes from './components/AddQuotes'
 
 const useStyles = makeStyles((theme) => ({
   right: {
@@ -23,24 +22,25 @@ const App = () => {
   return (
   
   <div>
-
-    Hello World
-
     <Navbar/>
-    
-    <Grid container>
-      
-      <Grid item sm={2} xs={2}>
-        <LeftBar /> 
+   
+    <Grid container className={classes.container}>
+     
+      <Grid item sm={2} xs={5}>
+            <LeftBar /> 
       </Grid>
 
-      <Grid item sm={3}xs={3}> 
+      <Grid item xs={4} xs={8}> 
   
             <Route exact path="/" component={Home}></Route>
+            <Route exact path="/post" component={Post}></Route>
             <Route exact path="/food" component={Food}><Food /></Route>
+            <Route exact path="/addfood" component={AddFood} />
+           
             <Route exact path="/meditate" component={Meditate} />
             <Route exact path="/breathingexercise" component={BreathingExercise} />
             <Route exact path="/motivationalquotes" component={MotivationalQuotes} />
+            <Route exact path="/addquotes" component={AddQuotes} />
            
       </Grid>
       
@@ -49,9 +49,7 @@ const App = () => {
       </Grid> */}
      </Grid>
     
-    <Add />  
-  
-  </div>
+    </div>
   
   );
 };

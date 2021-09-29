@@ -1,4 +1,8 @@
+# at-ease
+This application is a community wellness app. It provides safe space to share your emotions, wisdom and love in hopes to help heal, reduce stress and anxiety in your community. With the help of useful meditation, breathing exercises the user can reference back to when they are having those internal struggles.
 
+
+LOGO Meaning:
 
 Lotus Flower 
 The elegant Lotus is revered in many cultures and in different parts of the world; as per Buddhism, the elegant flower is believed to be a symbol of inner peace and detachment from the material world and other material desires. It is also regarded as a traditional sign of enlightenment.

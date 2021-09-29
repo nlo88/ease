@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { ThemeProvider } from '@material-ui/styles';
+// import { ThemeProvider } from '@material-ui/styles';
 import { BrowserRouter } from 'react-router-dom';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,3 +14,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+

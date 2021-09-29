@@ -1,61 +1,76 @@
-import { Container, List, makeStyles } from "@material-ui/core";
-import React from 'react';
-import { useState, useEffect } from "react";
-
-
+import { Button, Container, makeStyles, Typography } from "@material-ui/core";
+import { useEffect , useState } from "react";
+import React from 'react'
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        paddingTop: theme.spacing(1),
+        paddingTop: theme.spacing(3),
     },
+
+    quotes: {
+      textAlign: "center",
+      paddingTop: theme.spacing(8),
+    },
+    button: {
+      marginTop: theme.spacing(5)
+    }
+    
 }));
 
-
-function MotivationalQuotes () {
+function MotivationalQuotes (data) {
 
     const classes = useStyles();
-    const [ quote, setQuote ] = useState("")
-    const [ author, setAuthor ] = useState("")
+    const [quotes, setQuotes] = useState('');
+    const [authors, setAuthors] = useState('');
+    
+    const getData = () => {
+        
+        const quoteURL = 'http://localhost:8000/quote/' ;
+          fetch(quoteURL)
+          .then((res) => 
+          res.json())
+          .then((data) => {
+        
 
+          let randomNum = Math.floor(Math.random() * data.length);
+          let randomQuote = data[randomNum].quote;
+          let randomAuthor = data[randomNum].author;
 
-    useEffect(() => {
-        fetch("http://localhost:8000/admin/ease_app/quotes/")
-        .then(res => res.json())
-        .then(
-          (quote) => {
-            setQuote(quote.content);  
-            setAuthor(quote.author);
-          }
-        )
-    }, []);
+          setQuotes(randomQuote);
+          setAuthors(randomAuthor);
 
-    let fetchNewQuote = () => {
-        fetch("http://localhost:8000/admin/ease_app/quotes/")
-          .then(res => res.json())
-          .then(
-            (quote) => {
-              setQuote(quote.content);  
-              setAuthor(quote.author);
-            }
-          )
-      }
+          console.log(randomAuthor)
+          console.log(randomQuote)
+
+        })
+        }
+
+        useEffect (() => {
+          getData();
+      }, []);
+      
+        const handleClick =() => {
+          getData();
+        };
     
         return (
-        <Container className={classes.container}>
-        <h1> “He is free from self- display, and therefore he shines;”― Lao Tzu, Tao Te Ching </h1>
-       
-        <div className="quote">
-            <h2>{quote}</h2>
-            <h6>-{author}-</h6>
-        </div>
+         <Container className={classes.quotes}>
 
-         <button className="btn" onClick={fetchNewQuote}>Generate New Quote</button>
-   
-        </Container>
-        
-        )        
-    
+           <Typography variant="h6"> {quotes} </Typography>
+           <Typography> By {authors} </Typography>
+           
+           <Button
+                  className={classes.button}
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleClick}
+                  id="new-quote"
+                >
+                 New Quotes
+                </Button>
+            
+          </Container>
+        );
 };
-
 
 export default MotivationalQuotes;
