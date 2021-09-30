@@ -4,11 +4,16 @@ import { useState } from 'react';
 
 
 const useStyles = makeStyles((theme) => ({
+    navbar: {
+    },
+
     toolbar: {
         display: "flex",
         justifyContent: "space-between",
     },
     logoLg:{
+      fontFamily: "poiret-one",
+      fontWeight: 800,
       display: "none",
       [theme.breakpoints.up("sm")]: {display: "block"},
     },
@@ -52,7 +57,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
   const classes = useStyles({ open })
   return ( 
-    <AppBar position="static">
+    <AppBar className={classes.navbar} position="static">
         <Toolbar className={ classes.toolbar }>
             <Typography variant="h4" className={classes.logoLg}>
             at-ease
@@ -70,7 +75,7 @@ const Navbar = () => {
             <div className={classes.icons}>
                 <Search className={classes.searchButton} onClick={() => setOpen(true)}/>
                 <Badge badgeContent={0} color="secondary" className={classes.badge}>
-                <Person />
+                {/* <Person /> */}
                 </Badge> 
                 {/* <Badge badgeContent={0} color="secondary"className={classes.badge}>
                     <Notifications />

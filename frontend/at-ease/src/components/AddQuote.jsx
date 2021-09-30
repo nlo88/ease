@@ -1,7 +1,8 @@
-import { TextField, Button, makeStyles, Container, Typography  } from "@material-ui/core";
+import { TextField, Button, makeStyles, Container, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import UpdateQuote from "./UpdateQuote";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,71 +19,62 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const AddFood = () => {
+
+const AddQuote = () => {
 
     const classes = useStyles();
-    const [title, setTitle] = useState(null);
-    const [photo, setPhoto] = useState(null);
-    const [benefit, setBenefit] = useState(null);
+    const [quote, setQuote] = useState(null);
+    const [author, setAuthor] = useState(null);
     
     let history = useHistory();
     
-    const AddNewFood = async () => {
+    const AddNewQuote = async () => {
         let formField = new FormData()
 
-        formField.append('title',title)
-        formField.append('photo_url',photo)
-        formField.append('benefits',benefit)
-
+        formField.append('quote',quote)
+        formField.append('author',author)
+        
         await axios({
             method: 'post',
-            url: 'http://localhost:8000/food/',
+            url: 'http://localhost:8000/quote/',
             data: formField
         }).then((response)=> {
                 console.log(response.data);
                 history.push("/")
-        })    
-    }
+                
+        }) 
+        
+    }   
 
 return (
 
     <Container className={classes.container} >
-        <Typography className={classes.headline}> Message Board </Typography>
+        <Typography className={classes.headline}> Share your inspiration quote, future note for your future self or the community. </Typography>
         
         <div>
         <TextField
-            id="outlined-basic"
-            label="Title"
-            size="small"
+            id="outlined-multiline-flexible"
+            label="Message"
+            size="large"
+            multiline
+            maxRows={10}
             variant="outlined"
-            value={title}
-            style={{ marginBottom: 18 }}
-            onChange={(e) => setTitle(e.target.value)} />
+            value={quote}
+            style={{ width:"100%" }}
+            onChange={(e) => setQuote(e.target.value)} />
         </div>
 
         <div>
         <TextField
             id="outlined-basic"
-            label="Image URL"
+            label="By"
             size="small"
             variant="outlined"
-            value={photo}
-            style={{ marginBottom: 18 }}
-            onChange={(e) => setPhoto(e.target.value)} />
+            value={author}
+            style={{ marginTop: 18 }}
+            onChange={(e) => setAuthor(e.target.value)} />
         </div>        
-           
-        <div>
-        <TextField
-            id="outlined-multiline-flexible"
-            label="Benefits"
-            size="large"
-            multiline
-            maxRows={10}
-            variant="outlined"
-            value={benefit}
-            style={{ width: "100%" }}
-            onChange={(e) => setBenefit(e.target.value)} />
-        </div>       
+        
 
         <div className={classes.button}>
 
@@ -90,17 +82,17 @@ return (
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
-                  onClick={AddNewFood}
+          
                   id="new-quote"
                 >
                  DELETE
-                </Button> 
-
+                </Button>
+            
             <Button
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
-                  onClick={AddNewFood}
+                  onClick={UpdateQuote}
                   id="new-quote"
                 >
                  EDIT
@@ -110,15 +102,18 @@ return (
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
-                  onClick={AddNewFood}
+                  onClick={AddNewQuote}
                   id="new-quote"
                 >
-                 Submit
+                 SUBMIT
                 </Button> 
+
+
         </div>
     </Container>
 
 );
 }
 
-export default AddFood;
+
+export default AddQuote;

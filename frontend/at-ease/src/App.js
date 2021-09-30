@@ -8,10 +8,13 @@ import Food from './components/Food';
 import BreathingExercise from './components/BreathingExcercise';
 import Home from './components/Home'
 import Post from './components/Post'
-import AddFood from './components/AddFood';
-import AddQuotes from './components/AddQuotes'
+import AddQuote from './components/AddQuote'
+import UpdateQuote from './components/UpdateQuote';
 
 const useStyles = makeStyles((theme) => ({
+  mainpage:{
+    backgroundColor: "#ffe45e",
+  },
   right: {
     [theme.breakpoints.down("sm")]: {display:"none",},
   },
@@ -21,7 +24,7 @@ const App = () => {
   const classes = useStyles();
   return (
   
-  <div>
+  <div className={classes.mainpage}>
     <Navbar/>
    
     <Grid container className={classes.container}>
@@ -35,12 +38,13 @@ const App = () => {
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/post" component={Post}></Route>
             <Route exact path="/food" component={Food}><Food /></Route>
-            <Route exact path="/addfood" component={AddFood} />
+            
            
             <Route exact path="/meditate" component={Meditate} />
             <Route exact path="/breathingexercise" component={BreathingExercise} />
             <Route exact path="/motivationalquotes" component={MotivationalQuotes} />
-            <Route exact path="/addquotes" component={AddQuotes} />
+            <Route exact path="/addQuote" component={AddQuote} /> 
+            <Route exact path="/:id/update" component={UpdateQuote} />
            
       </Grid>
       

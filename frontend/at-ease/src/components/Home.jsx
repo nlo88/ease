@@ -9,8 +9,12 @@ import {
   } from "@material-ui/core";
   
   const useStyles = makeStyles((theme) => ({
-    container: {
+    container: {  
         marginTop: theme.spacing(3)
+    },
+    welcomefont: {
+        fontSize: 50,
+        color:"purple",
     },
     card: {
         height: 380,
@@ -30,17 +34,17 @@ function Home(props) {
 
     return (
         <Container className={classes.container}>
-        <Typography variant="h6"> </Typography>
-
+        {/* <Typography className={classes.welcomefont} variant="h6"> breathe. </Typography> */}
+        
         <CardActionArea>
             <CardMedia className={classes.media}
             image={"http://www.styleofthecitymag.co.uk/wp-content/uploads/2020/03/wellness-800x600.jpg"}
             title ="My Post"/>
             <CardContent>
-            <Typography variant="body">
+            <Typography variant="body"> 
             </Typography>
             </CardContent>
-        </CardActionArea>
+        </CardActionArea> 
         </Container>
     );
 }

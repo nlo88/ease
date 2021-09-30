@@ -40,7 +40,7 @@ function Meditate () {
     
         return (
         <Container className={classes.container}>
-        <Typography> Welcome to our Meditation Center </Typography>
+        <Typography variant="h6"> Support your mind. </Typography>
         {
         meditate.map((data) => (
         <div className={classes.meditate}>

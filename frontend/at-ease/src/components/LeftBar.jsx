@@ -48,12 +48,10 @@ const LeftBar = ( links ) => {
     <MenuList className={classes.menulist}>
         <MenuItem component={Link} to="/">Home</MenuItem>
         <MenuItem component={Link} to="/food">Food</MenuItem>
-        
-        <MenuItem component={Link} to="/addfood">Test Food</MenuItem>
-    
         <MenuItem component={Link} to="/meditate">Meditate</MenuItem>
         <MenuItem component={Link} to="/breathingexercise">Breathing Exercise</MenuItem>
         <MenuItem component={Link} to="/motivationalquotes">Motivational Quotes</MenuItem>
+        <MenuItem component={Link} to="/addquote">Message</MenuItem>
     </MenuList>   
             
     </Container>;

@@ -1,6 +1,8 @@
-import { Button, Container, makeStyles, Typography } from "@material-ui/core";
+import { Button, Container, makeStyles, Typography, } from "@material-ui/core";
 import { useEffect , useState } from "react";
 import React from 'react'
+// import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
+// import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -11,9 +13,23 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "center",
       paddingTop: theme.spacing(8),
     },
+    
+    icons: {
+      margin: theme.spacing(3)
+    },
+    editIcon:{
+      alignItems: "center",
+      marginRight: theme.spacing(2),
+    },
+    deleteIcon:{
+      marginLeft: theme.spacing(2),
+    },
+
     button: {
-      marginTop: theme.spacing(5)
-    }
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(3)
+    },
+
     
 }));
 
@@ -54,12 +70,21 @@ function MotivationalQuotes (data) {
         };
     
         return (
-         <Container className={classes.quotes}>
 
+       
+          
+      <Container className={classes.quotes}>
+           
+        
            <Typography variant="h6"> {quotes} </Typography>
            <Typography> By {authors} </Typography>
            
-           <Button
+          <div className={classes.icons}>
+          {/* <BorderColorOutlinedIcon className={classes.editIcon}/>
+          <DeleteOutlineIcon className={classes.deleteIcon} /> */}
+          </div>
+
+                <Button
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
@@ -68,8 +93,10 @@ function MotivationalQuotes (data) {
                 >
                  New Quotes
                 </Button>
-            
-          </Container>
+              
+   
+          </Container> 
+        
         );
 };
 
