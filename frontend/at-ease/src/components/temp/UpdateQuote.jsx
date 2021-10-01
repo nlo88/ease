@@ -24,7 +24,7 @@ const UpdateQuote = () => {
     })
 
     let getFoods = async () => {
-        const result = await axios.get(`http://localhost:8000/quote/1`)
+        const result = await axios.get(`https://at-ease-backend.herokuapp.com/quote/`)
         console.log(result.data.title)
 
         setQuote(result.data.title);
@@ -44,7 +44,7 @@ const UpdateQuote = () => {
         }
         await axios({
             method: 'PUT',
-            url: `http://localhost:8000/quote/${id}/`,
+            url: `https://at-ease-backend.herokuapp.com/quote/${id}/`,
             data: formField
         }).then((response) => {
             console.log(response.data);

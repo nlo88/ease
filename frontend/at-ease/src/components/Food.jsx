@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect , useState } from "react";
 import FoodCard from './FoodCard';
 
+
 const useStyles = makeStyles((theme) => ({
     heading: {
         color: "green",
@@ -26,17 +27,17 @@ const useStyles = makeStyles((theme) => ({
 function Food () {
 
     const classes = useStyles();
-    const [food, setFeed] = useState([]);
+    const [food, setFood] = useState([]);
     const [notes, setNotes] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:8000/food/`)
+        fetch(`https://at-ease-backend.herokuapp.com/food/`)
         .then(res => res.json())
         .then(data => setNotes(data))
     }, [])
 
     const handleDelete = async (id) => {
-        await fetch(`http://localhost:8000/food/${id}`, {
+        await fetch(`https://at-ease-backend.herokuapp.com/food/${id}`, {
             method: 'DELETE'
         })
         const newNotes = notes.filter(note => note.id !== id)
@@ -44,15 +45,16 @@ function Food () {
     }
     
     const fetchFood = async () => {
-        const result = await axios.get('http://localhost:8000/food/')
+        const result = await axios.get('https://at-ease-backend.herokuapp.com/food/')
         console.log(result.data)
-        setFeed(result.data)
+        setFood(result.data)
         }   
         
         useEffect(() => {
             fetchFood();
         }, []);
-       
+    
+    
         return (
         
         <Container className={classes.container}>
@@ -69,10 +71,12 @@ function Food () {
         <Grid container spacing={3}>
         {food.map((data) => (
             <Grid item key={data.id} xs={12} md={6} lg={4}>
-                <FoodCard note={data} handleDelete={handleDelete}/>
+                <FoodCard note={data} handleDelete={handleDelete} />
             </Grid>  
         ))}
         </Grid> 
+
+      
 
         </Container>
 

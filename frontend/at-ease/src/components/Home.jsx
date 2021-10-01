@@ -38,7 +38,8 @@ function Home(props) {
         
         <CardActionArea>
             <CardMedia className={classes.media}
-            image={"http://www.styleofthecitymag.co.uk/wp-content/uploads/2020/03/wellness-800x600.jpg"}
+            image={"https://i.pinimg.com/564x/aa/3d/55/aa3d55721a08d51cfb9708c79eedecce.jpg"}
+            // http://www.styleofthecitymag.co.uk/wp-content/uploads/2020/03/wellness-800x600.jpg"
             title ="My Post"/>
             <CardContent>
             <Typography variant="body"> 

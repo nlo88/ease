@@ -7,9 +7,10 @@ import { Route } from 'react-router-dom';
 import Food from './components/Food';
 import BreathingExercise from './components/BreathingExcercise';
 import Home from './components/Home'
-import Post from './components/Post'
-import AddQuote from './components/AddQuote'
-import UpdateQuote from './components/UpdateQuote';
+// import AddQuote from './components/AddQuote'
+import UpdateQuote from './components/temp/UpdateQuote';
+import FoodDetail from './components/temp/FoodDetail';
+import AddFood from './components/AddFood';
 
 const useStyles = makeStyles((theme) => ({
   mainpage:{
@@ -29,23 +30,26 @@ const App = () => {
    
     <Grid container className={classes.container}>
      
-      <Grid item sm={2} xs={5}>
+      <Grid item sm={2} xs={2}>
             <LeftBar /> 
       </Grid>
 
-      <Grid item xs={4} xs={8}> 
+      <Grid item xs={4} xs={9}> 
   
-            <Route exact path="/" component={Home}></Route>
-            <Route exact path="/post" component={Post}></Route>
-            <Route exact path="/food" component={Food}><Food /></Route>
+            <Route exact path="/" component={Home} />
             
+            <Route exact path="/food" component={Food}><Food /></Route>
+            <Route exact path="/:id" component={FoodDetail}><FoodDetail /></Route>
+            <Route exact path="/addFood" component={AddFood} />
            
+
             <Route exact path="/meditate" component={Meditate} />
             <Route exact path="/breathingexercise" component={BreathingExercise} />
             <Route exact path="/motivationalquotes" component={MotivationalQuotes} />
-            <Route exact path="/addQuote" component={AddQuote} /> 
+            {/* <Route exact path="/addQuote" component={AddQuote} />  */}
             <Route exact path="/:id/update" component={UpdateQuote} />
-           
+
+            
       </Grid>
       
       {/* <Grid item sm={3}className={classes.right}>

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 function Meditate () {
 
     const classes = useStyles();
-    const meditateURL = "http://localhost:8000/meditate/";
+    const meditateURL = "https://at-ease-backend.herokuapp.com/meditate/";
     const [meditate, setMeditate] = useState([]);
     
     

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const AddFood = () => {
+const AddFood = (addFood) => {
 
     const classes = useStyles();
     const [title, setTitle] = useState(null);
@@ -36,18 +36,20 @@ const AddFood = () => {
 
         await axios({
             method: 'post',
-            url: 'http://localhost:8000/food/',
+            url: 'https://at-ease-backend.herokuapp.com/food/',
             data: formField
         }).then((response)=> {
                 console.log(response.data);
                 history.push("/")
-        })    
+        })      
+        
     }
 
+    
 return (
 
     <Container className={classes.container} >
-        <Typography className={classes.headline}> Message Board </Typography>
+        <Typography className={classes.headline}> Share article, food related to health, with great benefits:  </Typography>
         
         <div>
         <TextField
@@ -90,7 +92,7 @@ return (
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
-                  onClick={AddNewFood}
+                 
                   id="new-quote"
                 >
                  DELETE

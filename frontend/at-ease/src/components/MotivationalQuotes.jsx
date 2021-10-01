@@ -1,8 +1,6 @@
 import { Button, Container, makeStyles, Typography, } from "@material-ui/core";
 import { useEffect , useState } from "react";
 import React from 'react'
-// import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-// import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -41,7 +39,7 @@ function MotivationalQuotes (data) {
     
     const getData = () => {
         
-        const quoteURL = 'http://localhost:8000/quote/' ;
+        const quoteURL = 'https://at-ease-backend.herokuapp.com/quote/' ;
           fetch(quoteURL)
           .then((res) => 
           res.json())
@@ -70,10 +68,8 @@ function MotivationalQuotes (data) {
         };
     
         return (
-
-       
           
-      <Container className={classes.quotes}>
+        <Container className={classes.quotes}>
            
         
            <Typography variant="h6"> {quotes} </Typography>
@@ -95,7 +91,7 @@ function MotivationalQuotes (data) {
                 </Button>
               
    
-          </Container> 
+        </Container> 
         
         );
 };

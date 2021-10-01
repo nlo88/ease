@@ -1,5 +1,5 @@
 import { Avatar,  InputBase , AppBar, makeStyles, Toolbar, Typography, alpha, Badge } from '@material-ui/core';
-import { Cancel, Search , Person } from "@material-ui/icons";
+import { Cancel, Search  } from "@material-ui/icons";
 import { useState } from 'react';
 
 
@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up("sm")]: {display: "block"},
     },
     logoSm:{
+      fontFamily: "poiret-one",
+      fontWeight: 800,
       display: "block",
       [theme.breakpoints.up("sm")]: {display: "none"},
     },
@@ -62,7 +64,7 @@ const Navbar = () => {
             <Typography variant="h4" className={classes.logoLg}>
             at-ease
             </Typography>
-            <Typography variant="h5" className={classes.logoSm}>
+            <Typography variant="h4" className={classes.logoSm}>
             at-ease
             </Typography>
             
