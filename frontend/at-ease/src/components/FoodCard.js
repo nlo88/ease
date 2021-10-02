@@ -8,12 +8,12 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 import CreateIcon from '@mui/icons-material/Create';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
-import { useHistory, useParams } from 'react-router';
+import { useHistory } from 'react-router';
 
 
 const FoodCard = ({ note, handleDelete , match }) => {
     const history = useHistory();
-    const { id } = useParams();
+    const id  = note.id
 
     return (
         <div>
@@ -52,8 +52,8 @@ const FoodCard = ({ note, handleDelete , match }) => {
                 
                 <IconButton 
                     component={Link} 
-                    to={`food/${id}`} 
-                    onClick={() => history.push(`food/${id}`)} > 
+                    to={`food/${id}/`} 
+                    onClick={() => history.push(`food/${id}/update`)} > 
                     <ReadMoreIcon />
                 </IconButton>
                 

@@ -45,13 +45,15 @@ const UpdateFood = () => {
         }
         await axios({
             method: 'PUT',
-            url: `https://at-ease-backend.herokuapp.com/food/${id}/`,
+            url: `https://at-ease-backend.herokuapp.com/food/${id}`,
             data: formField
         }).then((response) => {
-            console.log(response.data);
+            console.log(response);
             history.push("/");
         })
     } 
+
+
     
     return (
         <Container className={classes.container}>
@@ -59,32 +61,32 @@ const UpdateFood = () => {
         <Card> 
             <TextField 
                 id="outlined-basic"
-                label="Title"
+                label=""
                 size="small"
                 variant="outlined"
-                value={id.title}
+                value={title}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setTitle(e.target.value)}
             />
 
             <TextField 
                 id="outlined-basic"
-                label="Photo URL"
+                label=""
                 size="small"
                 variant="outlined"
-                value={id.photo}
+                value={photo}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setPhoto(e.target.value)}
             />
 
             <TextField 
                 id="outlined-multiline-flexible"
-                label="Post description"
+                label=""
                 size="large"
                 multiline
                 maxRows={10}
                 variant="outlined"
-                value={id.benefits}
+                value={benefits}
                 style={{ width:"100%" }}
                 onChange={(e) => setBenefits(e.target.value)}
             />

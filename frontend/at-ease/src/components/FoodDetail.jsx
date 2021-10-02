@@ -15,8 +15,8 @@ const FoodDetail = (detail) => {
     },[])
 
     const fetchSingleItems = async () => {
-        const {result} = await axios.get(`https://at-ease-backend.herokuapp.com/food/${id}`)
-        console.log(result.data)
+        const result = await axios.get(`https://at-ease-backend.herokuapp.com/food/${id}`)
+        console.log(result)
         setItems(result.data)
     }
 
@@ -37,7 +37,7 @@ const FoodDetail = (detail) => {
             
             <Button 
             component={Link} 
-            to={`/${items.id}/update`}
+            to={`/food/${id}/update`}
             >
             UPDATE</Button>
 

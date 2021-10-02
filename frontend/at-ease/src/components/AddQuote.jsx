@@ -2,7 +2,7 @@ import { TextField, Button, makeStyles, Container, Typography } from "@material-
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import UpdateQuote from "./UpdateQuote";
+import UpdateQuote from "./temp/UpdateQuote";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,7 @@ const AddQuote = () => {
 
     const classes = useStyles();
     const [open, setOpen] = useState(false);
-    
+
     const [quote, setQuote] = useState(null);
     const [author, setAuthor] = useState(null);
     
