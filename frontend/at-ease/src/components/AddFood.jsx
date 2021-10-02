@@ -3,6 +3,7 @@ import Alert from '@mui/material/Alert';
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
+import UpdateFood from "./UpdateFood";
 
 
 
@@ -117,8 +118,8 @@ return (
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
-                  onClick={AddNewFood}
-                  id="new-food"
+                  onClick={UpdateFood}
+                  id="update-food"
                 >
                 EDIT
                 </Button>

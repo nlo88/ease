@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import FoodCard from './FoodCard';
 import React, { useEffect , useState } from "react";
 import axios from "axios";
+import UpdateFood from "./UpdateFood";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,21 +55,26 @@ function Food () {
             fetchFood();
         }, []);
     
-    
+        
+         
         return (
-        
-        <Container className={classes.container}>
-        
-        <Grid container spacing={3}>
-        {food.map((data) => ( 
+            <Container className={classes.container}>
+                <Grid container spacing={3}>
+       
+        {food.map((data) => (
+            
             <Grid item key={data.id} xs={12} md={6} lg={4}>
-                <FoodCard note={data} handleDelete={handleDelete} />
-            </Grid>  
-        ))}
-        </Grid> 
-        </Container>     
-    );
-};
+                        <FoodCard note={data} handleDelete={handleDelete} />
+                    </Grid>  
+        ))}        
+                </Grid> 
+                </Container>
+        
+        );
+                    
+    
+        
+    }
 
 export default Food;
 

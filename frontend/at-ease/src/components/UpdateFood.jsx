@@ -22,7 +22,7 @@ const UpdateFood = () => {
 
     useEffect(() => {
         fetchFoods();
-    }, [])
+    },[])
 
     let fetchFoods = async () => {
         const result = await axios.get(`https://at-ease-backend.herokuapp.com/food/${id}`);
@@ -41,7 +41,7 @@ const UpdateFood = () => {
         formField.append('benefits', benefits)
 
         if(photo !== null) {
-            formField.append('photo', photo)
+            formField.append('photo_url', photo)
         }
         await axios({
             method: 'PUT',
@@ -61,7 +61,7 @@ const UpdateFood = () => {
                 label="Title"
                 size="small"
                 variant="outlined"
-                value={data.title}
+                value={title}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setTitle(e.target.value)}
             />
@@ -71,7 +71,7 @@ const UpdateFood = () => {
                 label="Photo URL"
                 size="small"
                 variant="outlined"
-                value={data.photo_url}
+                value={photo}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setPhoto(e.target.value)}
             />
@@ -83,7 +83,7 @@ const UpdateFood = () => {
                 multiline
                 maxRows={10}
                 variant="outlined"
-                value={data.quote}
+                value={benefits}
                 style={{ width:"100%" }}
                 onChange={(e) => setBenefits(e.target.value)}
             />
