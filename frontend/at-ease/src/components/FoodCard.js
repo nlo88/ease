@@ -33,7 +33,7 @@ const FoodCard = ({ note, handleDelete , match }) => {
             <Typography variant="body2" color="TextSecondary">{note.benefits}</Typography>
             </CardContent>
             
-            <CardActions disableSpacin>
+            <CardActions disableSpacing>
                 <IconButton 
                     onClick={() => handleDelete(note.id)}>
                     <DeleteOutlined />

@@ -50,7 +50,8 @@ const UpdateFood = () => {
         }).then((response) => {
             console.log(response.data);
             history.push("/");
-        })     
+        })
+    } 
     
     return (
         <Container className={classes.container}>
@@ -90,12 +91,15 @@ const UpdateFood = () => {
 
         <Button 
          className={classes.button}
-         onClick={updateNewFood}> EDIT </Button>   
+         onClick={updateNewFood}> EDIT 
+         </Button>   
+
+
         </Card>
         </div>
         </Container>
     );
-};
+
 }
 
 export default UpdateFood;

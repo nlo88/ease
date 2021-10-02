@@ -6,8 +6,6 @@ import axios from "axios";
 import UpdateFood from "./UpdateFood";
 
 
-
-
 const useStyles = makeStyles((theme) => ({
     container: {
         marginTop: theme.spacing(3)
@@ -142,7 +140,6 @@ return (
         </Alert>
 
     </Container>
-
     
 
 );
