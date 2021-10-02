@@ -15,13 +15,13 @@ const FoodCard = ({ note, handleDelete , match }) => {
     const history = useHistory();
     const { id } = useParams();
 
+
     return (
         <div>
             <Card elevation={3}>
             <CardHeader
                 title={note.title} handleDelete={handleDelete}
                 />
-            
             <CardContent>
             <CardMedia
                 component="img"
@@ -54,7 +54,7 @@ const FoodCard = ({ note, handleDelete , match }) => {
                 <IconButton 
                     component={Link} 
                     to={`food/${id}`} 
-                    onClick={() => history.push(`food/${id}/update`)} > 
+                    onClick={() => history.push(`food/${id}`)} > 
                     <ReadMoreIcon />
                 </IconButton>
                 

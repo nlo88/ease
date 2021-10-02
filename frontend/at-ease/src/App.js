@@ -12,6 +12,8 @@ import AddQuote from './components/AddQuote'
 import AddFood from './components/AddFood';
 import { Route } from 'react-router-dom';
 import UpdateFood from './components/UpdateFood';
+import FoodDetail from './components/FoodDetail';
+
 
 const useStyles = makeStyles((theme) => ({
   mainpage:{
@@ -34,13 +36,14 @@ const App = () => {
       <LeftBar /> 
       </Grid>
 
-      <Grid item xs={4} xs={9}> 
+      <Grid item s={4} xs={9}> 
   
         <Route exact path="/" component={Home} />
         
         <Route exact path="/food" component={Food}><Food /></Route>
-        <Route exact path="/food/:id/update" component={UpdateFood}></Route>
         <Route exact path="/addfood" component={AddFood} />
+        <Route exact path="/food/:id/update" component={UpdateFood}></Route>
+        <Route exact path="/food/:id/" component={FoodDetail}></Route>
         
         <Route exact path="/meditate" component={Meditate} />
         <Route exact path="/breathingexercise" component={BreathingExercise} />

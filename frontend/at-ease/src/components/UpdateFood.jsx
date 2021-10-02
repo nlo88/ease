@@ -33,7 +33,7 @@ const UpdateFood = () => {
         setBenefits(result.data.benefits);
     }
     
-    const updateNewFood = async () => {
+    const updateAFood = async () => {
         let formField = new FormData()
 
         formField.append('title', title)
@@ -91,7 +91,7 @@ const UpdateFood = () => {
 
         <Button 
          className={classes.button}
-         onClick={updateNewFood}> EDIT 
+         onClick={updateAFood}> EDIT 
          </Button>   
 
 

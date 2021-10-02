@@ -5,19 +5,19 @@ import { Button, Typography, Link, Container, Card } from '@material-ui/core';
 
 const FoodDetail = (detail) => {
 
-    const [item, setItem] = useState([])
+    const [items, setItems] = useState([])
 
     const { id } = useParams();
     const history = useHistory();
 
     useEffect(() => {
-        fetchItems();;
+        fetchSingleItems();;
     },[])
 
-    const fetchItems = async () => {
-        const result = await axios.get(`https://at-ease-backend.herokuapp.com/food/${id}`)
+    const fetchSingleItems = async () => {
+        const {result} = await axios.get(`https://at-ease-backend.herokuapp.com/food/${id}`)
         console.log(result.data)
-        setItem(result.data)
+        setItems(result.data)
     }
 
     const deleteItem = async (id) => {
@@ -25,25 +25,30 @@ const FoodDetail = (detail) => {
         history.push("/")
     }
 
+
     return (
         <Container>
-        <div>
-            <Card>{item.title}</Card>
+            
+            <Card>{items.title}
                 <div>
-                    <img src={item.photo_url} alt=""/>
-                    <Typography> {item.benefits} </Typography>
+                    <img src={items.photo_url} alt=""/>
+                    <Typography> {items.benefits} </Typography>
                 </div>
             
             <Button 
             component={Link} 
-            to={`/${item.id}/update`}
-            >UPDATE</Button>
+            to={`/${items.id}/update`}
+            >
+            UPDATE</Button>
 
             <Button 
             component={Link} 
-            onClick={() => deleteItem(item.title)}
-            >DELETE</Button>
-        </div>
+            onClick={() => deleteItem(items.title)}
+            >
+            DELETE</Button>
+
+            </Card>
+
         </Container>
     );
 };
