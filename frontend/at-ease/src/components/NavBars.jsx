@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
     navbar: {
+        position: "Sticky",
     },
 
     toolbar: {
@@ -57,9 +58,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
-  const classes = useStyles({ open })
-  return ( 
-    <AppBar className={classes.navbar} position="static">
+    const classes = useStyles({ open })
+  
+    return ( 
+        <AppBar className={classes.navbar} position="static">
         <Toolbar className={ classes.toolbar }>
             <Typography variant="h4" className={classes.logoLg}>
             at-ease
@@ -76,12 +78,7 @@ const Navbar = () => {
             
             <div className={classes.icons}>
                 <Search className={classes.searchButton} onClick={() => setOpen(true)}/>
-                <Badge badgeContent={0} color="secondary" className={classes.badge}>
-                {/* <Person /> */}
-                </Badge> 
-                {/* <Badge badgeContent={0} color="secondary"className={classes.badge}>
-                    <Notifications />
-                </Badge> */}
+                <Badge badgeContent={0} color="secondary" className={classes.badge}></Badge> 
                 <Avatar alt="Welcome Smile" src="https://m.media-amazon.com/images/I/41CyuoxrPvL._AC_.jpg">
                 </Avatar>
             </div>

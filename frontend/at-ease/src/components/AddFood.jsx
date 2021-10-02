@@ -1,7 +1,10 @@
-import { TextField, Button, makeStyles, Container, Typography  } from "@material-ui/core";
+import { TextField, Button, makeStyles, Container, Typography, Card, CardContent } from "@material-ui/core";
+import Alert from '@mui/material/Alert';
+import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -9,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3)
     },
     headline:{
-        fontFamily: 'Josefin Sans',
         marginBottom: theme.spacing(2)
     },
     button: {
@@ -24,7 +26,8 @@ const AddFood = (addFood) => {
     const [title, setTitle] = useState(null);
     const [photo, setPhoto] = useState(null);
     const [benefit, setBenefit] = useState(null);
-    
+    const [openAlert, setOpenAlert] = useState(false);
+  
     let history = useHistory();
     
     const AddNewFood = async () => {
@@ -34,6 +37,10 @@ const AddFood = (addFood) => {
         formField.append('photo_url',photo)
         formField.append('benefits',benefit)
 
+        if (photo!== null){
+        formField.append('image', photo)
+        }
+        
         await axios({
             method: 'post',
             url: 'https://at-ease-backend.herokuapp.com/food/',
@@ -45,11 +52,19 @@ const AddFood = (addFood) => {
         
     }
 
+    const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+          return;
+        }
+        setOpenAlert(false);
+    }
     
 return (
 
     <Container className={classes.container} >
-        <Typography className={classes.headline}> Share article, food related to health, with great benefits:  </Typography>
+        <Card>
+        <CardContent>
+        <Typography className={classes.headline}> Enter article, food related to health with great benefits: </Typography>
         
         <div>
         <TextField
@@ -92,10 +107,10 @@ return (
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
-                 
-                  id="new-quote"
+                  
+                  id="new-food"
                 >
-                 DELETE
+                DELETE
                 </Button> 
 
             <Button
@@ -103,9 +118,9 @@ return (
                   variant="outlined"
                   color="secondary"
                   onClick={AddNewFood}
-                  id="new-quote"
+                  id="new-food"
                 >
-                 EDIT
+                EDIT
                 </Button>
 
              <Button
@@ -113,12 +128,21 @@ return (
                   variant="outlined"
                   color="secondary"
                   onClick={AddNewFood}
-                  id="new-quote"
+                  id="new-food"
                 >
-                 Submit
+                SUBMIT
                 </Button> 
         </div>
+        </CardContent>
+        </Card>
+
+        <Alert onClose={handleClose} severity="success">
+            This is a success message!
+        </Alert>
+
     </Container>
+
+    
 
 );
 }

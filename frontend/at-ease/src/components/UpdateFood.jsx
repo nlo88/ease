@@ -1,7 +1,7 @@
-import { makeStyles, Container, Button } from '@material-ui/core';
+import { makeStyles, Container, Button, Card, TextField } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams , useHistory } from 'react-router';
+import axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,20 +25,19 @@ const UpdateFood = () => {
     }, [])
 
     let fetchFoods = async () => {
-        const result = await axios.get(`https://at-ease-backend.herokuapp.com/food/${id}`});
+        const result = await axios.get(`https://at-ease-backend.herokuapp.com/food/${id}`);
         console.log(result.data.title);
 
         setTitle(result.data.title);
         setPhoto(result.data.photo_url);
         setBenefits(result.data.benefits);
-        
     }
     
     const updateNewFood = async () => {
         let formField = new FormData()
 
         formField.append('title', title)
-        formField.append('photo', photo_url)
+        formField.append('photo_url', photo)
         formField.append('benefits', benefits)
 
         if(photo !== null) {
@@ -51,12 +50,10 @@ const UpdateFood = () => {
         }).then((response) => {
             console.log(response.data);
             history.push("/");
-        })    
+        })     
     
-
     return (
         <Container className={classes.container}>
-        
         <div>
         <Card> 
             <TextField 
@@ -64,7 +61,7 @@ const UpdateFood = () => {
                 label="Title"
                 size="small"
                 variant="outlined"
-                value={title}
+                value={data.title}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setTitle(e.target.value)}
             />
@@ -74,10 +71,11 @@ const UpdateFood = () => {
                 label="Photo URL"
                 size="small"
                 variant="outlined"
-                value={photo_url}
+                value={data.photo_url}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setPhoto(e.target.value)}
             />
+
             <TextField 
                 id="outlined-multiline-flexible"
                 label="Post description"
@@ -85,19 +83,19 @@ const UpdateFood = () => {
                 multiline
                 maxRows={10}
                 variant="outlined"
-                value={quote}
+                value={data.quote}
                 style={{ width:"100%" }}
                 onChange={(e) => setBenefits(e.target.value)}
             />
+
         <Button 
          className={classes.button}
          onClick={updateNewFood}> EDIT </Button>   
         </Card>
         </div>
         </Container>
-
-        
     );
 };
+}
 
-export default UpdateQuote;
+export default UpdateFood;

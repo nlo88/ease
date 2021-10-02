@@ -1,11 +1,11 @@
 import { Container, makeStyles, MenuList, MenuItem } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
 import GrassIcon from '@mui/icons-material/Grass';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 container: {
@@ -57,9 +57,9 @@ const LeftBar = ( links ) => {
         <MenuItem component={Link} to="/meditate"> <SelfImprovementIcon  /></MenuItem>
         <MenuItem component={Link} to="/breathingexercise"> <GrassIcon /></MenuItem>
         <MenuItem component={Link} to="/motivationalquotes"> <LocalFloristIcon /></MenuItem>
-        {/* <MenuItem component={Link} to="/addquote"> <VolunteerActivismIcon /> </MenuItem> */}
-
-        <MenuItem component={Link} to="/addfood"> ADD FOOD </MenuItem>
+        <MenuItem component={Link} to="/addquote"> <VolunteerActivismIcon /> </MenuItem>
+        
+        <MenuItem component={Link} to="/fooddetail"> DET </MenuItem>
   
     </MenuList>   
             

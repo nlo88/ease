@@ -1,6 +1,6 @@
-import { Container, makeStyles, Typography, CardMedia, } from "@material-ui/core";
+import { Container, makeStyles, Typography, CardMedia, Card} from "@material-ui/core";
 import { useEffect , useState } from "react";
-
+import ReactPlayer from "react-player";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -12,8 +12,16 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         width: "80%",
-        margin: "auto"
+        margin: "auto",
+        
       },
+    videocard: {
+        margin: "auto" ,
+        backgroundColor: "lightblue",
+        font: "white",
+        fontWeight: "Bold",
+        
+    }
 }));
 
 function Meditate () {
@@ -40,20 +48,27 @@ function Meditate () {
     
         return (
         <Container className={classes.container}>
-        <Typography variant="h6"> Support your mind. </Typography>
+        <Card elevation={3}  className={classes.videocard}>
         {
-        meditate.map((data) => (
+        meditate.map((data) => ( 
         <div className={classes.meditate}>
         <Typography className={classes.title}>{data.title}</Typography>
         <CardMedia>
-        <iframe className={classes.media} frameborder="0" allow='autoplay; encripted-media' allowfullscreen title='video' src={data.preview_url} ></iframe>
+        <ReactPlayer className={classes.media} 
+            frameborder="0" allow='autoplay; encripted-media' 
+            allowfullscreen 
+            title='video'
+            width="auto"
+            url={data.preview_url} 
+            ></ReactPlayer>
+        
+        <Typography className={classes.moderator} src={data.moderator} alt="">By {data.moderator}.</Typography>
         </CardMedia>
-        <Typography className={classes.moderator} src={data.moderator} alt=""/>
-       
         </div>
         ))
         }
-        
+
+    </Card>   
     </Container>
     );
 };

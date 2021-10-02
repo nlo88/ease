@@ -1,4 +1,3 @@
-
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
@@ -8,16 +7,21 @@ import CardActions from '@mui/material/CardActions';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 import CreateIcon from '@mui/icons-material/Create';
-import { useHistory } from 'react-router';
+import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import { useHistory, useParams } from 'react-router';
 
-const FoodCard = ({ note, handleDelete,  AddFood }) => {
+
+const FoodCard = ({ note, handleDelete , match }) => {
     const history = useHistory();
+    const { id } = useParams();
+
     return (
         <div>
             <Card elevation={3}>
             <CardHeader
                 title={note.title} handleDelete={handleDelete}
                 />
+            
             <CardContent>
             <CardMedia
                 component="img"
@@ -28,6 +32,7 @@ const FoodCard = ({ note, handleDelete,  AddFood }) => {
         
             <Typography variant="body2" color="TextSecondary">{note.benefits}</Typography>
             </CardContent>
+            
             <CardActions disableSpacin>
                 <IconButton 
                     onClick={() => handleDelete(note.id)}>
@@ -38,15 +43,20 @@ const FoodCard = ({ note, handleDelete,  AddFood }) => {
                     aria-label="add to favorites">
                     <FavoriteBorderIcon />
                 </IconButton>
-
-                
+ 
                 <IconButton 
                     component={Link} 
                     to="/addfood" 
                     onClick={() => history.push("/addfood")} > 
-                    <CreateIcon /> 
+                <CreateIcon /> 
                 </IconButton>
                 
+                <IconButton 
+                    component={Link} 
+                    to={`food/${id}`} 
+                    onClick={() => history.push(`food/${id}/update`)} > 
+                    <ReadMoreIcon />
+                </IconButton>
                 
             </CardActions>
             </Card> 

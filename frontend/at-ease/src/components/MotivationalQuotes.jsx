@@ -1,32 +1,29 @@
-import { Button, Container, makeStyles, Typography, } from "@material-ui/core";
+import { Button, Container, makeStyles, Typography, Card, CardContent} from "@material-ui/core";
 import { useEffect , useState } from "react";
 import React from 'react'
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        paddingTop: theme.spacing(3),
+        paddingTop: theme.spacing(1),
+    },
+    content: {
+      marginTop: theme.spacing(2)
     },
 
     quotes: {
       textAlign: "center",
-      paddingTop: theme.spacing(8),
-    },
-    
-    icons: {
-      margin: theme.spacing(3)
-    },
-    editIcon:{
-      alignItems: "center",
-      marginRight: theme.spacing(2),
-    },
-    deleteIcon:{
-      marginLeft: theme.spacing(2),
+      marginTop: theme.spacing(2),
     },
 
     button: {
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(3)
     },
+    
+    img: {
+      height: 380,
+      bottomMargin: theme.spacing(6),
+    }
 
     
 }));
@@ -70,8 +67,9 @@ function MotivationalQuotes (data) {
         return (
           
         <Container className={classes.quotes}>
-           
-        
+        <Card xs={{ maxWidth: 500 }} square elevation="3" className={classes.paper}> 
+          <CardContent className={classes.content}>
+          <img className={classes.img} src="https://i.pinimg.com/564x/18/99/2a/18992a1198248404595dce2207c1c4d0.jpg" alt=""/>
            <Typography variant="h6"> {quotes} </Typography>
            <Typography> By {authors} </Typography>
            
@@ -90,7 +88,8 @@ function MotivationalQuotes (data) {
                  New Quotes
                 </Button>
               
-   
+        </CardContent>
+        </Card>
         </Container> 
         
         );
