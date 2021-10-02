@@ -23,6 +23,8 @@ const useStyles = makeStyles((theme) => ({
 const AddQuote = () => {
 
     const classes = useStyles();
+    const [open, setOpen] = useState(false);
+    
     const [quote, setQuote] = useState(null);
     const [author, setAuthor] = useState(null);
     
@@ -87,6 +89,15 @@ return (
                  DELETE
                 </Button>
             
+
+            <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={() => setOpen(false)}
+                >
+                  CANCEL
+                </Button>
+
             <Button
                   className={classes.button}
                   variant="outlined"

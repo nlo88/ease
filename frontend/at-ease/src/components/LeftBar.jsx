@@ -59,7 +59,7 @@ const LeftBar = ( links ) => {
         <MenuItem component={Link} to="/motivationalquotes"> <LocalFloristIcon /></MenuItem>
         <MenuItem component={Link} to="/addquote"> <VolunteerActivismIcon /> </MenuItem>
         
-        <MenuItem component={Link} to="/fooddetail"> DET </MenuItem>
+       
   
     </MenuList>   
             

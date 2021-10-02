@@ -62,7 +62,7 @@ const UpdateFood = () => {
                 label="Title"
                 size="small"
                 variant="outlined"
-                value={title}
+                value={id.title}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setTitle(e.target.value)}
             />
@@ -72,7 +72,7 @@ const UpdateFood = () => {
                 label="Photo URL"
                 size="small"
                 variant="outlined"
-                value={photo}
+                value={id.photo}
                 style={{ marginTop: 18 }}
                 onChange={(e) => setPhoto(e.target.value)}
             />
@@ -84,7 +84,7 @@ const UpdateFood = () => {
                 multiline
                 maxRows={10}
                 variant="outlined"
-                value={benefits}
+                value={id.benefits}
                 style={{ width:"100%" }}
                 onChange={(e) => setBenefits(e.target.value)}
             />

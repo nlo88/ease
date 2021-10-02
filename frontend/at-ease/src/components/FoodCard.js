@@ -15,7 +15,6 @@ const FoodCard = ({ note, handleDelete , match }) => {
     const history = useHistory();
     const { id } = useParams();
 
-
     return (
         <div>
             <Card elevation={3}>
