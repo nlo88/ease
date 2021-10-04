@@ -30,7 +30,8 @@ const FoodCard = ({ note, handleDelete , match }) => {
                 alt=""
                 /> 
         
-            <Typography variant="body2" color="TextSecondary">{note.benefits} </Typography>
+            <Typography variant="body2" color="TextSecondary">{note.benefits} 
+</Typography>
             </CardContent>
             
             <CardActions disableSpacing>
