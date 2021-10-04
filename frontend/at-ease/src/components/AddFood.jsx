@@ -1,4 +1,4 @@
-import { TextField, Button, makeStyles, Container, Typography, Card, CardContent } from "@material-ui/core";
+import { TextField, Button, makeStyles, Container, Typography, Card, CardContent, Snackbar } from "@material-ui/core";
 import Alert from '@mui/material/Alert';
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
@@ -134,11 +134,11 @@ return (
         </div>
         </CardContent>
         </Card>
-
+        <Snackbar>
         <Alert onClose={handleClose} severity="success">
             This is a success message!
         </Alert>
-
+        </Snackbar>
     </Container>
     
 

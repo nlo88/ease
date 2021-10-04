@@ -79,7 +79,7 @@ return (
 
         <div className={classes.button}>
 
-            <Button
+            {/* <Button
                   className={classes.button}
                   variant="outlined"
                   color="secondary"
@@ -106,7 +106,7 @@ return (
                   id="new-quote"
                 >
                  EDIT
-                </Button>
+                </Button> */}
 
              <Button
                   className={classes.button}

@@ -1,14 +1,15 @@
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import { IconButton , Typography, CardMedia, Link } from '@material-ui/core';
+import { IconButton , Typography, CardMedia, Link, Button } from '@material-ui/core';
 import { DeleteOutlined } from '@material-ui/icons';
 import CardActions from '@mui/material/CardActions';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 import CreateIcon from '@mui/icons-material/Create';
-import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import { useHistory } from 'react-router';
+import { ClassNames } from '@emotion/react';
 
 
 const FoodCard = ({ note, handleDelete , match }) => {
@@ -29,32 +30,36 @@ const FoodCard = ({ note, handleDelete , match }) => {
                 alt=""
                 /> 
         
-            <Typography variant="body2" color="TextSecondary">{note.benefits}</Typography>
+            <Typography variant="body2" color="TextSecondary">{note.benefits} </Typography>
             </CardContent>
             
             <CardActions disableSpacing>
-                <IconButton 
+                <IconButton className={ClassNames.deleteicon}
+                    title="ARE YOU SURE YOU WANT TO DELETE THIS?"
                     onClick={() => handleDelete(note.id)}>
                     <DeleteOutlined />
                 </IconButton>
 
-                <IconButton 
+                <IconButton
+                    title="SHOW SOME LOVE"
                     aria-label="add to favorites">
                     <FavoriteBorderIcon />
                 </IconButton>
  
                 <IconButton 
                     component={Link} 
-                    to="/addfood" 
+                    to="/addfood"
+                    title="CREATE NEW"
                     onClick={() => history.push("/addfood")} > 
-                <CreateIcon /> 
+                    <ControlPointIcon />
                 </IconButton>
                 
                 <IconButton 
                     component={Link} 
-                    to={`food/${id}/`} 
+                    to={`food/${id}/`}
+                    title="EDIT"
                     onClick={() => history.push(`food/${id}/update`)} > 
-                    <ReadMoreIcon />
+                    <CreateIcon /> 
                 </IconButton>
                 
             </CardActions>

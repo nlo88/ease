@@ -28,6 +28,7 @@ function Breathe () {
         Recognize that thoughts and emotions are fleeting and do not define you.
         Calibrate with the physical sensations of your body: how the water feels on the skin, how the body feels. </Typography>
         </CardContent>
+        
         </Card>
         
         </Container>

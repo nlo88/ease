@@ -23,13 +23,13 @@ container: {
 item: {
     display: "flex",
     alignItems: "Center",
-    marginBottom: theme.spacing(5),
+    marginBottom: theme.spacing(8),
     [theme.breakpoints.up("sm")]: {marginBottom: theme.spacing(3),
         cursor: "Pointer",
     },
 },
 icon: {
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(5),
     [theme.breakpoints.up("sm")]: {
       fontSize: "18px",
     },
@@ -37,7 +37,8 @@ icon: {
 link: {
     display: "flex",
     alignItems: "Center",
-    marginBottom: theme.spacing(5),
+    marginLeft: theme.spacing(1),
+    marginBottom: theme.spacing(8),
     [theme.breakpoints.up("sm")]: {marginBottom: theme.spacing(3),
         cursor: "Pointer", 
     },
